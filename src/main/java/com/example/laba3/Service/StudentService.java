@@ -19,9 +19,10 @@ public class StudentService {
     Logger log = LoggerFactory.getLogger(this.getClass());
 
 
-    public String showAllStudents () {
+    public String showAllStudents (Model model) {
 
         List<StudentModel> students = findAll();
+        model.addAttribute("students", students);
 
         return "home";
     }

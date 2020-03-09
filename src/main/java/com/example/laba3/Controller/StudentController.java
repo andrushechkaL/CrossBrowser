@@ -21,10 +21,10 @@ public class StudentController {
 
 
     @RequestMapping(value="/home", method= RequestMethod.GET)
-    public String homePage() {
+    public String homePage(Model model) {
 
-
-        return studentService.showAllStudents();
+        model.addAttribute("student", new StudentModel());
+        return studentService.showAllStudents(model);
     }
 
     @RequestMapping(value="/form", method= RequestMethod.GET)
