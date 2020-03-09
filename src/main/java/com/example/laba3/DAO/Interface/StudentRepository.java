@@ -13,4 +13,6 @@ public interface StudentRepository extends JpaRepository<StudentModel, Long> {
 
     StudentModel save(StudentModel student);
 
+    @Override
+    void deleteById(Long aLong);
 }

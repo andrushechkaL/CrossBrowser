@@ -47,4 +47,14 @@ public class StudentController {
     }
 
 
+    @RequestMapping(value="/delete", method=RequestMethod.GET)
+    public String studentDeleteForm(@ModelAttribute StudentModel student, Model model) {
+        model.addAttribute("students", new StudentModel());
+        return "deleteScreen";
+    }
+
+    @RequestMapping(value="/delete", method=RequestMethod.POST)
+    public String studentDelete(@ModelAttribute StudentModel student, Model model) {
+        return studentService.deleteStudent(student, model);
+    }
 }

@@ -23,23 +23,13 @@ public class StudentService {
 
         List<StudentModel> students = findAll();
         model.addAttribute("students", students);
-
         return "home";
     }
 
     public String addStudent (StudentModel student, Model model) {
 
         model.addAttribute("student", student);
-        createUsers(student);
-//        String info = String.format("Customer Submission: id = %d, name = %s, surname = %s",
-//                student.getId(), student.getName(), student.getSurname());
-        //log.info(info);
-//        List<StudentModel> test = findAll();
-//        for (StudentModel tmp :
-//                test) {
-//            log.info(tmp.getName());
-//        }
-
+        createStudents(student);
         return "result";
     }
 
@@ -47,8 +37,14 @@ public class StudentService {
         return studentRepository.findAll();
     }
 
-    public void createUsers(StudentModel student) {
+    public void createStudents(StudentModel student) {
         studentRepository.save(student);
+    }
+
+    public String deleteStudent (StudentModel student, Model model) {
+        model.addAttribute("student", student);
+        studentRepository.delete(student);
+        return "deleteScreen";
     }
 
 

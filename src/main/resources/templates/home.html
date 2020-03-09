@@ -6,21 +6,37 @@
 </head>
 <body>
 
+
+<input>
+
 <table border="1">
     <tr>
+        <td>ID</td>
         <td>Name</td>
         <td>Surname</td>
         <td>Group</td>
     </tr>
+    <form action="#" th:action="@{/delete}" th:object="${student}" method="post">
     <tr th:each = "student: ${students}">
+        <td th:utext="${student.id}"></td>
         <td th:utext="${student.name}"></td>
         <td th:utext="${student.surname}"></td>
         <td th:utext="${student.groupId}"></td>
     </tr>
-<!--    <button></button>-->
-<!--    <button></button>-->
-</table>
+    </form>
 
+
+</table>
+<button><a href="/form">Add Student</a></button>
+
+
+
+<h1>Student delete Form</h1>
+<form action="#" th:action="@{/delete}" th:object="${student}" method="post">
+    <p>Enter student`s ID to delete: <input type="text" th:field="*{id}" /></p>
+    <p><input type="submit" value="Delete" /></p>
+</form>
+<!--<button><a href="/delete">Delete Student</a></button>-->
 
 
 </body>
