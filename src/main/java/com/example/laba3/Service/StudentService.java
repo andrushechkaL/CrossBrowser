@@ -21,20 +21,25 @@ public class StudentService {
     public String addStudent (StudentModel student, Model model) {
 
         model.addAttribute("student", student);
-        String info = String.format("Customer Submission: id = %d, name = %s, surname = %s",
-                student.getId(), student.getName(), student.getSurname());
+        createUsers(student);
+//        String info = String.format("Customer Submission: id = %d, name = %s, surname = %s",
+//                student.getId(), student.getName(), student.getSurname());
         //log.info(info);
-        List<StudentModel> test = findAll();
-        for (StudentModel tmp :
-                test) {
-            log.info(tmp.getName());
-        }
+//        List<StudentModel> test = findAll();
+//        for (StudentModel tmp :
+//                test) {
+//            log.info(tmp.getName());
+//        }
 
         return "result";
     }
 
     public List<StudentModel> findAll(){
         return studentRepository.findAll();
+    }
+
+    public void createUsers(StudentModel student) {
+        studentRepository.save(student);
     }
 
 }
