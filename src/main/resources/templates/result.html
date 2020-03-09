@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -5,6 +7,15 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<p th:text="'Hello, ' + ${name} + '!'" />
+
+<h1>Result</h1>
+<p th:text="'id: ' + ${student.id}" />
+<p th:text="'First Name: ' + ${student.name}" />
+<p th:text="'Last Name: ' + ${student.surname}" />
+<a href="/form">Submit another Customer Form</a>
+
+
 </body>
 </html>
+
+
