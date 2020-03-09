@@ -12,17 +12,25 @@ import org.springframework.web.bind.annotation.*;
 
 
 @Controller
-public class ControllerHello {
+public class StudentController {
 
     @Autowired
     StudentService studentService;
 
     Logger log = LoggerFactory.getLogger(this.getClass());
 
+
+    @RequestMapping(value="/home", method= RequestMethod.GET)
+    public String homePage() {
+
+
+        return studentService.showAllStudents();
+    }
+
     @RequestMapping(value="/form", method= RequestMethod.GET)
     public String studentForm(Model model) {
         model.addAttribute("student", new StudentModel());
-        return "main";
+        return "addForm";
     }
 
     @RequestMapping(value="/form", method=RequestMethod.POST)

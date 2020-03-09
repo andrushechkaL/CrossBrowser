@@ -13,5 +13,4 @@ public interface StudentRepository extends JpaRepository<StudentModel, Long> {
 
     StudentModel save(StudentModel student);
 
-
 }

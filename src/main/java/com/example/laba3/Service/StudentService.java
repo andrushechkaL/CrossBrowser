@@ -18,6 +18,14 @@ public class StudentService {
 
     Logger log = LoggerFactory.getLogger(this.getClass());
 
+
+    public String showAllStudents () {
+
+        List<StudentModel> students = findAll();
+
+        return "home";
+    }
+
     public String addStudent (StudentModel student, Model model) {
 
         model.addAttribute("student", student);
@@ -41,5 +49,6 @@ public class StudentService {
     public void createUsers(StudentModel student) {
         studentRepository.save(student);
     }
+
 
 }

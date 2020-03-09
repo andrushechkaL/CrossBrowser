@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+</head>
+<body>
+
+<table border="1">
+    <tr>
+        <td>Name</td>
+        <td>Surname</td>
+        <td>Group</td>
+    </tr>
+    <tr th:each = "student: ${students}">
+        <td th:utext="${student.name}"></td>
+        <td th:utext="${student.surname}"></td>
+        <td th:utext="${student.group}"></td>
+    </tr>
+<!--    <button></button>-->
+<!--    <button></button>-->
+</table>
+
+
+
+</body>
+</html>
